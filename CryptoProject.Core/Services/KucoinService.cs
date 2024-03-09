@@ -31,11 +31,7 @@ namespace CryptoProject.Core.Services
 
             var outputAmount = data.InputAmount * rate;
 
-            return new EstimateResultDto
-            {
-                ExchangeName = ExchangesContants.KUCOIN,
-                OutputAmount = outputAmount
-            };
+            return new EstimateResultDto(ExchangesContants.KUCOIN, outputAmount);
         }
 
         /// <summary>
@@ -48,13 +44,8 @@ namespace CryptoProject.Core.Services
         {
             var rate = await GetRate(baseCurrency, quoteCurrency);
 
-            return new RateResultDto
-            {
-                ExchangeName = ExchangesContants.KUCOIN,
-                Rate = rate
-            };
+            return new RateResultDto(ExchangesContants.KUCOIN, rate);
         }
-
 
         /// <summary>
         /// Returns the price of the specified cryptocurrency on Kucoin exchange

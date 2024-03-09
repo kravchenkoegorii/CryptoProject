@@ -32,11 +32,7 @@ namespace CryptoProject.Core.Services
 
             var outputAmount = data.InputAmount * rate;
 
-            return new EstimateResultDto
-            {
-                ExchangeName = ExchangesContants.BINANCE,
-                OutputAmount = outputAmount
-            };
+            return new EstimateResultDto(ExchangesContants.BINANCE, outputAmount);
         }
 
         /// <summary>
@@ -49,11 +45,7 @@ namespace CryptoProject.Core.Services
         {
             var rate = await GetRate(baseCurrency, quoteCurrency);
 
-            return new RateResultDto
-            {
-                ExchangeName = ExchangesContants.BINANCE,
-                Rate = rate,
-            };
+            return new RateResultDto(ExchangesContants.BINANCE, rate);
         }
 
         /// <summary>
